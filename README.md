@@ -92,14 +92,8 @@ logs라는 이름의 파일에 json 형식 로그 데이터 저장
 
 
 
-
+온도나 압력에 이상값 관측시 상태와 메시지로 알림
 <img width="1096" height="643" alt="image" src="https://github.com/user-attachments/assets/31c650ce-08e2-4d62-b40e-ecb5ecae8204" />
-
-
-* Temperature 표시
-* Pressure 표시
-* DispatcherTimer를 이용한 실시간 데이터 갱신
-* SensorService를 통한 센서 데이터 시뮬레이션
 
 
 
