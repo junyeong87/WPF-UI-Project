@@ -116,56 +116,6 @@ DataGrid를 이용하여
 
 ---
 
-## 🏗 프로젝트 구조
-
-
-```mermaid
-flowchart TD
-
-    A[DashboardPage / DataPage]
-
-    B[DashboardViewModel]
-    C[DataViewModel]
-
-    D[SensorService]
-    E[JsonService]
-
-    F[ObservableCollection]
-    G[DataGrid / Dashboard UI]
-
-    A --> B
-    A --> C
-
-    B --> D
-    B --> E
-
-    C --> D
-
-    D --> F
-
-    F --> G
-```
-
-├── Models
-│   └── LogEntry
-│
-├── Services
-│   ├── SensorService
-│   └── JsonService
-│
-├── ViewModels
-│   ├── DashboardViewModel
-│   └── DataViewModel
-│
-├── Views
-│   ├── DashboardPage
-│   └── DataPage
-│
-└── App.xaml
-```
-
----
-
 ## 📚 적용한 기술
 
 * MVVM Pattern
@@ -183,7 +133,7 @@ flowchart TD
 ---
 
 
-## 📖 배운 점
+📖 배운 점
 
 이번 프로젝트를 통해 단순히 UI를 구현하는 것에서 그치지 않고, WPF 애플리케이션을 MVVM 패턴으로 설계하는 방법을 익혔습니다.
 
