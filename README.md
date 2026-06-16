@@ -95,26 +95,14 @@
 
 
 <img width="1102" height="645" alt="image" src="https://github.com/user-attachments/assets/8687dda5-c857-498a-89ca-32bf401a97a8" />
-
+로그 저장 버튼을 누르면 
+logs라는 이름의 파일에 json 형식 로그 데이터 저장
 
 <img width="398" height="575" alt="image" src="https://github.com/user-attachments/assets/cdf73db2-35ff-4d68-a518-8bda8587c080" />
 
 
 ---
 
-### ✅ 데이터 모니터링
-
-DataGrid를 이용하여
-
-* 시간
-* 상태
-* 온도
-* 압력
-* 메시지
-
-를 실시간으로 확인할 수 있습니다.
-
----
 
 ## 📚 적용한 기술
 
