@@ -35,13 +35,42 @@ namespace Pratice.ViewModels.Pages
 
             _timer.Tick += (_, _) =>
             {
+
+                int temperature = _sensorService.GetTemperature();
+                int pressure = _sensorService.GetPressure();
+
+                string type = "RUN";
+                string message = "정상";
+
+                if (temperature >= 45 && pressure >= 1250)
+                {
+                    type = "ERROR";
+                    message = "온도 및 압력 이상";
+                }
+                else if (temperature >= 45)
+                {
+                    type = "WARNING";
+                    message = "온도 이상";
+                }
+                else if (pressure >= 1250)
+                {
+                    type = "WARNING";
+                    message = "압력 이상";
+                }
+
+
+
+
+
+
+
                 Logs.Add(new LogEntry
                 {
                     Time = DateTime.Now,
-                    Temperature = _sensorService.GetTemperature(),
-                    Pressure = _sensorService.GetPressure(),
-                    Type = "RUN",
-                    Message = "센서 데이터"
+                    Temperature = temperature,
+                    Pressure = pressure,
+                    Type = type,
+                    Message = message
                 });
 
                 // 너무 많이 쌓이는 걸 방지 (선택사항)

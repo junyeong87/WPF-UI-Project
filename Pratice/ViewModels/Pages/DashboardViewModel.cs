@@ -124,7 +124,7 @@ namespace Pratice.ViewModels.Pages
             Logs.Add(new LogEntry
             {
                 Time = DateTime.Now,
-                Type = "INFO",
+                Type = "RUN",
                 Message = "장비 시작",
                 Temperature = Temperature,
                 Pressure = Pressure
