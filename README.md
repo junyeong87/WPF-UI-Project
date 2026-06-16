@@ -101,8 +101,8 @@ logs라는 이름의 파일에 json 형식 로그 데이터 저장
 
 ## 📚 적용한 기술
 
-#**🏗️ Architecture & DI**#
-MVVM Pattern & CommunityToolkit.Mvvm
+## 🏗️ Architecture & DI
+#**MVVM Pattern & CommunityToolkit.Mvvm**#
 
 ObservableObject와 RelayCommand를 활용하여 코드 중복을 최소화하고, 뷰(UI)와 비즈니스 로직 간의 관심사를 명확히 분리하여 유지보수성에 신경썼습니다.
 
