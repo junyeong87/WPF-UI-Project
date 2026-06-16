@@ -6,18 +6,6 @@
 
 ---
 
-## 📷 Preview
-
-<img width="1093" height="645" alt="image" src="https://github.com/user-attachments/assets/c758748f-0703-403f-a17a-c088ef2e248d" />
-
-
-<img width="1092" height="641" alt="image" src="https://github.com/user-attachments/assets/58e10718-c42e-4a55-925b-7cde6adc29e1" />
-
-
-
-
----
-
 ## 📌 프로젝트 소개
 
 산업 현장에서 사용하는 HMI 화면을 참고하여 제작한 프로젝트입니다.
@@ -42,6 +30,12 @@
 ## ✨ 주요 기능
 
 ### ✅ 장비 제어
+
+<img width="1093" height="645" alt="image" src="https://github.com/user-attachments/assets/c758748f-0703-403f-a17a-c088ef2e248d" />
+
+
+<img width="1092" height="641" alt="image" src="https://github.com/user-attachments/assets/58e10718-c42e-4a55-925b-7cde6adc29e1" />
+
 
 * 장비 시작(Start)
 * 장비 정지(Stop)
@@ -69,13 +63,14 @@
 
 ### ✅ 장비 상태 표시
 
-* 장비 상태 텍스트 출력
-* 상태 표시 LED
+- 장비 상태 텍스트 출력
+- 상태 표시 LED
 
-| 상태        | 표시 |<br>
-| STOP        | ⚪ |<br>
-| RUN         | 🟢 |<br>
-| EMERGENCY   | 🔴 |<br>
+| 상태 | 표시 |
+|-------------|-----|
+| RUN         | 🟢 |
+| STOP        | ⚪ |
+| EMERGENCY   | 🔴 |
 
 ---
 
