@@ -44,22 +44,7 @@
 
 ---
 
-### ✅ 실시간 센서 모니터링
 
-
-
-
-<img width="1096" height="643" alt="image" src="https://github.com/user-attachments/assets/31c650ce-08e2-4d62-b40e-ecb5ecae8204" />
-
-
-* Temperature 표시
-* Pressure 표시
-* DispatcherTimer를 이용한 실시간 데이터 갱신
-* SensorService를 통한 센서 데이터 시뮬레이션
-
-
-
----
 
 ### ✅ 장비 상태 표시
 
@@ -103,6 +88,22 @@ logs라는 이름의 파일에 json 형식 로그 데이터 저장
 
 ---
 
+### ✅ 실시간 센서 모니터링
+
+
+
+
+<img width="1096" height="643" alt="image" src="https://github.com/user-attachments/assets/31c650ce-08e2-4d62-b40e-ecb5ecae8204" />
+
+
+* Temperature 표시
+* Pressure 표시
+* DispatcherTimer를 이용한 실시간 데이터 갱신
+* SensorService를 통한 센서 데이터 시뮬레이션
+
+
+
+---
 
 ## 📚 적용한 기술
 
