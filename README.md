@@ -2,13 +2,19 @@
 
 > WPF + MVVM 기반 산업용 HMI(Human Machine Interface) 시뮬레이터
 
-실시간 센서 데이터를 모니터링하고 장비를 제어할 수 있는 산업용 HMI 프로그램입니다.
+실시간으로 생성되는 센서 데이터를 모니터링하고 장비 운전 상태를 시뮬레이션할 수 있는 WPF 기반 산업용 HMI(Human Machine Interface) 프로그램입니다.
 
 ---
 
 ## 📷 Preview
 
-> (실행 화면 GIF 또는 스크린샷 추가)
+<img width="1093" height="645" alt="image" src="https://github.com/user-attachments/assets/c758748f-0703-403f-a17a-c088ef2e248d" />
+
+
+<img width="1092" height="641" alt="image" src="https://github.com/user-attachments/assets/58e10718-c42e-4a55-925b-7cde6adc29e1" />
+
+
+
 
 ---
 
@@ -18,7 +24,7 @@
 
 장비의 상태를 실시간으로 모니터링하고, 센서 데이터를 표시하며, 운전/정지/비상정지 기능과 로그 관리 기능을 구현했습니다.
 
-실제 PLC와 연결되어 있지는 않으며 SensorService를 통해 센서 데이터를 시뮬레이션합니다.
+실제 PLC와 연결되어 있지는 않으며 SensorService를 통해 온도 및 압력 센서 데이터를 시뮬레이션하며, 실시간으로 UI와 로그에 반영되도록 구현했습니다.
 
 ---
 
@@ -59,10 +65,9 @@
 * 상태 표시 LED
 
 | 상태        | 표시 |
-| --------- | -- |
-| RUN       | 🟢 |
-| STOP      | ⚪  |
-| EMERGENCY | 🔴 |
+| RUN         | 🟢 |
+| STOP        | ⚪ |
+| EMERGENCY   | 🔴 |
 
 ---
 
@@ -75,27 +80,24 @@
 * 압력 기록
 * 메시지 기록
 
+<img width="1096" height="643" alt="image" src="https://github.com/user-attachments/assets/31c650ce-08e2-4d62-b40e-ecb5ecae8204" />
+
+
+
+
 ---
 
 ### ✅ 로그 저장
 
 * JSON 파일 저장
 * System.Text.Json 사용
-* 사람이 읽기 쉬운(Indented) 형태 저장
 
-예시
 
-```json
-[
-  {
-    "Time": "2026-06-15T15:10:02",
-    "Type": "RUN",
-    "Temperature": 24,
-    "Pressure": 1012,
-    "Message": "장비 시작"
-  }
-]
-```
+<img width="1102" height="645" alt="image" src="https://github.com/user-attachments/assets/8687dda5-c857-498a-89ca-32bf401a97a8" />
+
+
+<img width="398" height="575" alt="image" src="https://github.com/user-attachments/assets/cdf73db2-35ff-4d68-a518-8bda8587c080" />
+
 
 ---
 
@@ -115,8 +117,33 @@ DataGrid를 이용하여
 
 ## 🏗 프로젝트 구조
 
+
+```mermaid
+flowchart TD
+
+    A[DashboardPage / DataPage]
+
+    B[DashboardViewModel]
+    C[DataViewModel]
+
+    D[SensorService]
+    E[JsonService]
+
+    F[ObservableCollection]
+    G[DataGrid / Dashboard UI]
+
+    A --> B
+    A --> C
+
+    B --> D
+    B --> E
+
+    C --> D
+
+    D --> F
+
+    F --> G
 ```
-Pratice
 
 ├── Models
 │   └── LogEntry
@@ -151,28 +178,18 @@ Pratice
 * DataGrid
 * Navigation
 
----
-
-## 🚀 향후 개선 예정
-
-* PLC 통신(Modbus/TCP)
-* SQLite 로그 저장
-* CSV Export
-* 알람 이력 관리
-* 실시간 그래프
-* 사용자 권한 관리
 
 ---
+
 
 ## 📖 배운 점
 
-이번 프로젝트를 통해
+이번 프로젝트를 통해 단순히 UI를 구현하는 것에서 그치지 않고, WPF 애플리케이션을 MVVM 패턴으로 설계하는 방법을 익혔습니다.
 
-* MVVM 구조 설계
-* WPF 데이터 바인딩
-* DispatcherTimer를 이용한 실시간 UI 갱신
-* ObservableCollection을 이용한 데이터 관리
-* JSON 직렬화
-* 서비스 분리 및 DI 적용
+특히 View, ViewModel, Service를 역할에 따라 분리함으로써 각 계층의 책임을 명확히 나누는 설계의 중요성을 이해할 수 있었습니다. 이러한 구조는 기능 수정 시 다른 계층에 미치는 영향을 최소화하여 유지보수와 기능 확장에 유리하며, 각 기능을 독립적으로 검증하기 쉬운 구조라는 점도 배울 수 있었습니다.
 
-등을 경험할 수 있었습니다.
+또한 DispatcherTimer와 ObservableCollection을 활용하여 실시간으로 변경되는 데이터를 UI에 자동으로 반영하는 데이터 바인딩 방식을 구현하며 WPF의 이벤트 처리와 데이터 흐름을 이해할 수 있었습니다.
+
+Dependency Injection을 적용하여 SensorService와 JsonService를 분리함으로써 객체 간의 결합도를 낮추고, 서비스의 역할을 명확하게 분리하는 설계 방식을 경험했습니다.
+
+마지막으로 JSON 직렬화를 이용해 로그 데이터를 파일로 저장하는 기능을 구현하면서 데이터 관리와 서비스 계층 분리에 대한 이해를 높일 수 있었습니다.
