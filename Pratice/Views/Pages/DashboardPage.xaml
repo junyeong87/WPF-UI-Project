@@ -21,9 +21,9 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
             <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
             <RowDefinition Height="50" />
 
             <RowDefinition Height="*" /><!--로그 로우-->
@@ -80,12 +80,24 @@
          />
 
 
-        <TextBlock
-            Grid.Row="2"
-            Grid.Column="1"
-            VerticalAlignment="center"
-            Text="{Binding ViewModel.DeviceStatus, Mode=OneWay}"
-         />
+        <StackPanel
+    Grid.Row="2"
+    Grid.Column="1"
+    Orientation="Horizontal"
+    VerticalAlignment="Center">
+
+            <Ellipse
+        Width="16"
+        Height="16"
+        Margin="0,0,8,0"
+        Fill="{Binding ViewModel.StatusColor}" />
+
+            <TextBlock
+        VerticalAlignment="Center"
+        FontWeight="Bold"
+        Text="{Binding ViewModel.DeviceStatus}" />
+
+        </StackPanel>
 
         <TextBlock
             Grid.Row="2"
@@ -124,28 +136,41 @@
 
 
         <GroupBox
-            Grid.Row="6"
-            Grid.Column="0"
-            Grid.ColumnSpan="5"
-            Header="로그">
+    Grid.Row="6"
+    Grid.Column="0"
+    Grid.ColumnSpan="5"
+    Header="로그">
 
+            <DataGrid
+        ItemsSource="{Binding ViewModel.Logs}"
+        AutoGenerateColumns="False"
+        IsReadOnly="True">
 
+                <DataGrid.Columns>
 
-            <ListBox ItemsSource="{Binding ViewModel.Logs}">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Vertical">
-                            <TextBlock Text="{Binding Time, StringFormat=시간 : {0:HH:mm:ss}}"/>
-                            <TextBlock Text="{Binding Temperature, StringFormat=온도 : {0}}" />
-                            <TextBlock Text="{Binding Pressure, StringFormat=압력 : {0}}" />
-                            <TextBlock Text="{Binding Type, StringFormat=상태 : {0}}" />
-                            <TextBlock Text="{Binding Message, StringFormat=메시지 : {0}}" />
+                    <DataGridTextColumn
+                Header="시간"
+                Binding="{Binding Time, StringFormat={}{0:HH:mm:ss}}" />
 
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-                
-            </ListBox>
+                    <DataGridTextColumn
+                Header="상태"
+                Binding="{Binding Type}" />
+
+                    <DataGridTextColumn
+                Header="온도"
+                Binding="{Binding Temperature, StringFormat={}{0} ℃}" />
+
+                    <DataGridTextColumn
+                Header="압력"
+                Binding="{Binding Pressure, StringFormat={}{0} kPa}" />
+
+                    <DataGridTextColumn
+                Header="메시지"
+                Binding="{Binding Message}" />
+
+                </DataGrid.Columns>
+
+            </DataGrid>
 
         </GroupBox>
 

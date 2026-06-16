@@ -15,7 +15,7 @@ namespace Pratice.Services
 
         public int GetPressure() 
         { 
-            return Random.Shared.Next(1000, 2000);
+            return Random.Shared.Next(960, 1300);
         }
     }
 }

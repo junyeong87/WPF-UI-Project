@@ -60,3 +60,4 @@ C:\Users\thswn\source\repos\Pratice\Pratice\obj\Debug\net8.0-windows\refint\Prat
 C:\Users\thswn\source\repos\Pratice\Pratice\obj\Debug\net8.0-windows\Pratice.pdb
 C:\Users\thswn\source\repos\Pratice\Pratice\obj\Debug\net8.0-windows\Pratice.genruntimeconfig.cache
 C:\Users\thswn\source\repos\Pratice\Pratice\obj\Debug\net8.0-windows\ref\Pratice.dll
+C:\Users\thswn\source\repos\Pratice\Pratice\obj\Debug\net8.0-windows\Pratice.sourcelink.json

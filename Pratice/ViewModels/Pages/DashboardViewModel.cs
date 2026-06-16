@@ -3,6 +3,7 @@ using System.Windows.Threading;
 using System.Collections.ObjectModel;
 using Microsoft.Extensions.Logging.Abstractions;
 using Pratice.Models;
+using System.Windows.Media;
 
 namespace Pratice.ViewModels.Pages
 {
@@ -72,14 +73,31 @@ namespace Pratice.ViewModels.Pages
             }
         }
 
+        public Brush StatusColor 
+        {
+            get 
+            {
+                if (DeviceEmergency)
+                    return Brushes.Red;
+                else if (DeviceRun)
+                    return Brushes.LimeGreen;
+                else
+                    return Brushes.Gray;
+            }
+        }
+
+
         partial void OnDeviceRunChanged(bool value)
         {
             OnPropertyChanged(nameof(DeviceStatus));
+            OnPropertyChanged(nameof(StatusColor));
         }
 
         partial void OnDeviceEmergencyChanged(bool value)
         {
             OnPropertyChanged(nameof(DeviceStatus));
+            OnPropertyChanged(nameof(StatusColor));
+
             OnPropertyChanged(nameof(CanStart));
             OnPropertyChanged(nameof(CanReset));
         }
@@ -113,7 +131,7 @@ namespace Pratice.ViewModels.Pages
             });
 
 
-///            Logs.Add($"{DateTime.Now:HH:mm:ss}: 장비 시작");
+
         }
 
         [RelayCommand]
@@ -131,10 +149,7 @@ namespace Pratice.ViewModels.Pages
                 Temperature = Temperature,
                 Pressure = Pressure
             });
-            ///            Logs.Add("-------------------------------------");
-            ///            Logs.Add($"{DateTime.Now:HH:mm:ss}: 장비 정지");
-            ///            Logs.Add($"온도 = {Temperature}℃   ");
-            ///            Logs.Add($"압력 = {Pressure}");
+
         }
 
         [RelayCommand]
@@ -154,10 +169,7 @@ namespace Pratice.ViewModels.Pages
                 Temperature = Temperature,
                 Pressure = Pressure
             });
-            ///            Logs.Add("-------------------------------------");
-            ///            Logs.Add($"{DateTime.Now:HH:mm:ss}: 비상 정지");
-            ///            Logs.Add($"{Temperature}℃");
-            ///            Logs.Add($"{Pressure}");
+
         }
 
         [RelayCommand]
@@ -177,8 +189,7 @@ namespace Pratice.ViewModels.Pages
                 Temperature = Temperature,
                 Pressure = Pressure
             });
-            ///            Logs.Add("-------------------------------------");
-            ///            Logs.Add($"{DateTime.Now:HH:mm:ss}: 리셋");
+
         }
 
 
