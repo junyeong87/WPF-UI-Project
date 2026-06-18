@@ -1,30 +1,30 @@
 [
   {
-    "Time": "2026-06-16T13:48:39.5887273+09:00",
-    "Type": "INFO",
+    "Time": "2026-06-16T15:15:25.302994+09:00",
+    "Type": "RUN",
     "Message": "\uC7A5\uBE44 \uC2DC\uC791",
     "Temperature": 0,
     "Pressure": 0
   },
   {
-    "Time": "2026-06-16T13:48:39.9156117+09:00",
+    "Time": "2026-06-16T15:15:48.9841725+09:00",
     "Type": "STOP",
     "Message": "\uC7A5\uBE44 \uC815\uC9C0",
-    "Temperature": 0,
-    "Pressure": 0
+    "Temperature": 25,
+    "Pressure": 1169
   },
   {
-    "Time": "2026-06-16T13:48:40.6451278+09:00",
+    "Time": "2026-06-16T15:15:55.9734387+09:00",
+    "Type": "RUN",
+    "Message": "\uC7A5\uBE44 \uC2DC\uC791",
+    "Temperature": 25,
+    "Pressure": 1169
+  },
+  {
+    "Time": "2026-06-16T15:16:03.8917584+09:00",
     "Type": "ERROR",
     "Message": "\uBE44\uC0C1 \uC815\uC9C0",
-    "Temperature": 0,
-    "Pressure": 0
-  },
-  {
-    "Time": "2026-06-16T13:48:40.8539049+09:00",
-    "Type": "RESET",
-    "Message": "\uCD08\uAE30\uD654",
-    "Temperature": 0,
-    "Pressure": 0
+    "Temperature": 20,
+    "Pressure": 1286
   }
 ]
