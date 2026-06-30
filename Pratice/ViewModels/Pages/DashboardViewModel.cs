@@ -43,11 +43,11 @@ namespace Pratice.ViewModels.Pages
         [ObservableProperty]
         private string _currentDate;
 
-        [ObservableProperty]
+        /*[ObservableProperty]
         private bool _deviceRun;
         
         [ObservableProperty]
-        private bool _deviceEmergency;
+        private bool _deviceEmergency;*/
 
         [ObservableProperty]
         private int _temperature;
@@ -60,7 +60,17 @@ namespace Pratice.ViewModels.Pages
         [ObservableProperty]
         private ObservableCollection<LogEntry> _logs = new ObservableCollection<LogEntry>();
 
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(DeviceStatus))]
+        [NotifyPropertyChangedFor(nameof(StatusColor))]
+        private bool _deviceRun;
 
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(DeviceStatus))]
+        [NotifyPropertyChangedFor(nameof(StatusColor))]
+        [NotifyPropertyChangedFor(nameof(CanStart))]
+        [NotifyPropertyChangedFor(nameof(CanReset))]
+        private bool _deviceEmergency;
 
 
         public string DeviceStatus
@@ -87,7 +97,7 @@ namespace Pratice.ViewModels.Pages
         }
 
 
-        partial void OnDeviceRunChanged(bool value)
+/*        partial void OnDeviceRunChanged(bool value)
         {
             OnPropertyChanged(nameof(DeviceStatus));
             OnPropertyChanged(nameof(StatusColor));
@@ -100,7 +110,7 @@ namespace Pratice.ViewModels.Pages
 
             OnPropertyChanged(nameof(CanStart));
             OnPropertyChanged(nameof(CanReset));
-        }
+        }*/
 
         public bool CanStart => !DeviceEmergency;
         public bool CanReset => DeviceEmergency;
